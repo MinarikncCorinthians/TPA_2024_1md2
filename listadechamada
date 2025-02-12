@@ -1,0 +1,25 @@
+class Program
+{
+    static void Main()
+    {
+        // Cria um array para armazenar os nomes
+        string[] nomes = new string[10];
+ 
+        // Solicita ao atendente que digite os nomes
+        Console.WriteLine("Sistema de Chamada - Cadastre 10 nomes:");
+ 
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Digite o nome {i + 1}: ");
+            nomes[i] = Console.ReadLine();
+        }
+ 
+        // Exibe os nomes na ordem de chamada (último a ser digitado será o primeiro a ser chamado)
+        Console.WriteLine("\nOrdem de Chamada:");
+ 
+        for (int i = 9; i >= 0; i--)
+        {
+            Console.WriteLine(nomes[i]);
+        }
+    }
+}
