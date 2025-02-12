@@ -1,0 +1,73 @@
+using System;
+ 
+class Program
+{
+    static void Main()
+    {
+        // Preços dos aluguéis por dia
+        const decimal precoCompacto = 75.00m;
+        const decimal precoSedan = 100.00m;
+        const decimal precoSUV = 150.00m;
+        const decimal precoLuxo = 300.00m;
+        const decimal taxaAdicional = 0.15m; // 15%
+ 
+        // Solicita a cidade de aluguel
+        Console.WriteLine("Bem-vindo à Locadora de Automóveis!");
+        Console.WriteLine("Escolha a cidade de aluguel:");
+        Console.WriteLine("1. Cidade A");
+        Console.WriteLine("2. Cidade B");
+        int cidadeAluguel = int.Parse(Console.ReadLine());
+ 
+        // Solicita a cidade de devolução
+        Console.WriteLine("Escolha a cidade de devolução:");
+        Console.WriteLine("1. Cidade A");
+        Console.WriteLine("2. Cidade B");
+        int cidadeDevolucao = int.Parse(Console.ReadLine());
+ 
+        // Solicita o tipo de carro
+        Console.WriteLine("Escolha o tipo de carro:");
+        Console.WriteLine("1. Compacto (R$75,00 por dia)");
+        Console.WriteLine("2. Sedan (R$100,00 por dia)");
+        Console.WriteLine("3. SUV (R$150,00 por dia)");
+        Console.WriteLine("4. Luxo (R$300,00 por dia)");
+        int tipoCarro = int.Parse(Console.ReadLine());
+ 
+        // Solicita o número de dias de aluguel
+        Console.Write("Digite o número de dias de aluguel: ");
+        int diasAluguel = int.Parse(Console.ReadLine());
+ 
+        // Calcula o preço do aluguel
+        decimal precoDiario = 0;
+ 
+        switch (tipoCarro)
+        {
+            case 1:
+                precoDiario = precoCompacto;
+                break;
+            case 2:
+                precoDiario = precoSedan;
+                break;
+            case 3:
+                precoDiario = precoSUV;
+                break;
+            case 4:
+                precoDiario = precoLuxo;
+                break;
+            default:
+                Console.WriteLine("Tipo de carro inválido.");
+                return;
+        }
+ 
+        // Calcula o custo total
+        decimal custoTotal = precoDiario * diasAluguel;
+ 
+        // Verifica se há taxa adicional
+        if (cidadeAluguel != cidadeDevolucao)
+        {
+            custoTotal += custoTotal * taxaAdicional; // Adiciona 15%
+        }
+ 
+        // Exibe o custo total
+        Console.WriteLine($"\nCusto total do aluguel: R${custoTotal:F2}");
+    }
+}
