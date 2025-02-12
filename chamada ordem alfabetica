@@ -1,0 +1,29 @@
+using System;
+ 
+ 
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Informe o número de alunos na sala: ");
+        int numAlunos = Convert.ToInt32(Console.ReadLine());
+ 
+        string[] nomesAlunos = new string[numAlunos];
+ 
+        for (int i = 0; i < numAlunos; i++)
+        {
+            Console.Write($"Digite o nome do aluno {i + 1}: ");
+            nomesAlunos[i] = Console.ReadLine();
+        }
+ 
+        Array.Sort(nomesAlunos);
+ 
+        Console.WriteLine("Nomes dos alunos em ordem alfabética:");
+        foreach (string nome in nomesAlunos)
+        {
+            Console.WriteLine(nome);
+        }
+ 
+        Console.ReadKey();
+    }
+}
