@@ -1,0 +1,58 @@
+using System;
+ 
+class Program
+{
+    static void Main()
+    {
+        // Cria um array para armazenar os nomes do primeiro jogador
+        string[] nomes = new string[5];
+ 
+        // Primeiro jogador digita 5 nomes
+        Console.WriteLine("Jogador 1, digite 5 nomes:");
+ 
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write($"Digite o nome {i + 1}: ");
+            nomes[i] = Console.ReadLine();
+        }
+ 
+        // Limpa a tela para o segundo jogador
+        Console.Clear();
+ 
+        // Segundo jogador tenta adivinhar os nomes
+        Console.WriteLine("Jogador 2, você tem 2 tentativas para adivinhar um dos nomes.");
+ 
+        bool venceu = false;
+ 
+        for (int i = 0; i < 2; i++)
+        {
+            Console.Write($"Tentativa {i + 1}: ");
+            string tentativa = Console.ReadLine();
+ 
+            // Verifica se a tentativa está entre os nomes do primeiro jogador
+            for (int j = 0; j < 5; j++)
+            {
+                if (tentativa.Equals(nomes[j], StringComparison.OrdinalIgnoreCase))
+                {
+                    venceu = true;
+                    break;
+                }
+            }
+ 
+            if (venceu)
+            {
+                break; // Sai do loop se o segundo jogador acertou
+            }
+        }
+ 
+        // Exibe o resultado
+        if (venceu)
+        {
+            Console.WriteLine("Segundo jogador venceu!");
+        }
+        else
+        {
+            Console.WriteLine("Primeiro jogador venceu!");
+        }
+    }
+}
